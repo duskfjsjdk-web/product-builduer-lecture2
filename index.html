@@ -3,22 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Palette Generator</title>
+    <title>Professional Color Palette Generator - Create & Export Themes</title>
+    <meta name="description" content="Generate beautiful, unique color palettes for your web design, brand, or art project. Explore random colors and copy hex codes easily.">
     <meta name="google-adsense-account" content="ca-pub-7041618579349998">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7041618579349998"
      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Color Palette Generator</h1>
-        <button id="theme-toggle">Dark Mode</button>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="/" class="logo">ColorGen</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-to-use">How to Use</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle">Dark Mode</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Professional Color Palette Generator</h1>
+        <p>Your one-stop tool for unique and beautiful color combinations.</p>
     </header>
+
     <main>
         <div class="palette-container">
+            <!-- Palettes will be generated here -->
         </div>
-        <button id="generate-btn">Generate Palette</button>
+        <div class="actions">
+            <button id="generate-btn">Generate New Palette</button>
+        </div>
+
+        <section id="how-to-use" class="content-section">
+            <h2>How to Use ColorGen</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>1. Generate</h3>
+                    <p>Click the "Generate New Palette" button to instantly create a new set of five harmonious colors.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Copy Hex</h3>
+                    <p>Click on any color card to copy its Hexadecimal code directly to your clipboard for use in your designs.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Design Better</h3>
+                    <p>Use these palettes for web design, branding, illustration, and any creative project where color matters.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About Our Tool</h2>
+            <p>ColorGen is a professional-grade tool designed for designers, artists, and developers. Our algorithm ensures that you get unique color combinations that stand out. We believe in providing simple, effective tools to help the creative community thrive.</p>
+        </section>
+
+        <section id="privacy" class="content-section">
+            <h2>Privacy Policy</h2>
+            <p>Your privacy is important to us. ColorGen does not store any personal data. We use local storage only to remember your theme preference (Dark or Light mode). No cookies are used for tracking purposes.</p>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact Us</h2>
+            <p>Have questions or feedback? Reach out to us at <a href="mailto:support@colorgen.example.com">support@colorgen.example.com</a>. We'd love to hear from you!</p>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2026 ColorGen - High Quality Color Tools. All rights reserved.</p>
+    </footer>
+
     <script src="main.js"></script>
 </body>
 </html>
