@@ -1,17 +1,57 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: #333;
+    --header-text: #fff;
+    --card-shadow: rgba(0,0,0,0.1);
+    --btn-bg: #333;
+    --btn-text: #fff;
+    --btn-hover: #555;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f4f4f4;
+    --header-bg: #000;
+    --header-text: #fff;
+    --card-shadow: rgba(255,255,255,0.1);
+    --btn-bg: #f4f4f4;
+    --btn-text: #1a1a1a;
+    --btn-hover: #ddd;
+}
+
 /* Basic Styles */
 body {
     font-family: sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-bg);
+    color: var(--header-text);
     padding: 1rem;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+#theme-toggle {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: 1px solid var(--btn-text);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 main {
@@ -38,7 +78,7 @@ main {
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--card-shadow);
     transition: transform 0.2s;
 }
 
@@ -56,8 +96,8 @@ main {
 }
 
 #generate-btn {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
@@ -68,66 +108,5 @@ main {
 }
 
 #generate-btn:hover {
-    background-color: #555;
+    background-color: var(--btn-hover);
 }
-
-.message-section {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.message-container {
-    display: flex;
-    gap: 0.5rem;
-    width: 100%;
-}
-
-#message-input {
-    flex: 1;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: all 0.2s;
-}
-
-#send-btn {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-#send-btn:hover {
-    background-color: #555;
-}
-
-/* --- DEBUGGING STYLES --- */
-.messages-display {
-    margin-top: 1rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background-color: #e0f7fa; /* Light cyan background */
-    border: 2px dashed #00bcd4;  /* Cyan border */
-    padding: 1rem;
-    min-height: 100px;
-}
-
-.message-item {
-    background-color: #fff;
-    padding: 0.8rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 1px solid #ff9800; /* Orange border for visibility */
-}
-/* --- END DEBUGGING STYLES --- */

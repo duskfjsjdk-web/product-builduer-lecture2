@@ -1,17 +1,6 @@
 const paletteContainer = document.querySelector('.palette-container');
 const generateBtn = document.getElementById('generate-btn');
-const messageInput = document.getElementById('message-input');
-const sendBtn = document.getElementById('send-btn');
-const messagesDisplay = document.querySelector('.messages-display');
-
-
-// --- DIAGNOSTICS START ---
-console.log("Script starting...");
-console.log("Does the message input exist?", messageInput);
-console.log("Does the send button exist?", sendBtn);
-console.log("Does the message display area exist?", messagesDisplay);
-// --- DIAGNOSTICS END ---
-
+const themeToggle = document.getElementById('theme-toggle');
 
 const generateRandomColor = () => {
     const hexChars = '0123456789ABCDEF';
@@ -59,37 +48,29 @@ const copyToClipboard = (text) => {
     });
 };
 
-const sendMessage = () => {
-    console.log("Attempting to send message..."); // Check if function is called
-    const message = messageInput.value.trim();
-    if (message) {
-        console.log("Message has content:", message); // Check message content
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message-item');
-        messageElement.textContent = message;
-        messagesDisplay.appendChild(messageElement);
-        messageInput.value = '';
-    } else {
-        console.log("Message is empty. Nothing to send."); // Check if message is empty
-    }
-};
-
-if (messageInput && sendBtn && messagesDisplay) {
-    console.log("All elements found. Attaching event listeners.");
-    messageInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            sendMessage();
-        }
-    });
-    sendBtn.addEventListener('click', sendMessage);
-} else {
-    console.error("CRITICAL ERROR: One or more essential HTML elements were not found. The application cannot run correctly.");
-}
-
 if(generateBtn){
     generateBtn.addEventListener('click', displayPalette);
 }
 
+// Theme Toggle Logic
+const currentTheme = localStorage.getItem('theme') || 'light';
+document.body.setAttribute('data-theme', currentTheme);
+if (currentTheme === 'dark') {
+    themeToggle.textContent = 'Light Mode';
+}
+
+themeToggle.addEventListener('click', () => {
+    const theme = document.body.getAttribute('data-theme');
+    if (theme === 'light') {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = 'Light Mode';
+    } else {
+        document.body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = 'Dark Mode';
+    }
+});
 
 // Initial palette display
 displayPalette();
